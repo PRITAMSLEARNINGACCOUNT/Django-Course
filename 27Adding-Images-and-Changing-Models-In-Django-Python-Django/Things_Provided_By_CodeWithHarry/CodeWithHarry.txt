@@ -1,0 +1,72 @@
+In one of the previous tutorials, we saw how we could add the data to the database with the help of Django models. We also created a model called Product. Now, let's add some more fields to the Product model. Below is the code:
+
+from django.db import models
+
+class Product(models.Model):
+    product_id=models.AutoField
+    product_name=models.CharField(max_length=50)
+    category= models.CharField(max_length=50, default="")
+    sub_category= models.CharField(max_length=50, default="")
+    price=models.IntegerField(default=0)
+    desc=models.CharField(max_length=300)
+    pub_date=models.DateField()
+    image= models.ImageField(upload_to="shop/images",default="")
+
+In the above code, we have added a price field for the price of the products, category, and sub-category field to categorize the product, and an image field to add the image of the product. After defining all these fields, type the below command to store these changes:
+
+python manage.py makemigrations
+ After doing this, include these changes in the database by typing the command given below:
+
+python manage.py migrate
+If you have followed all the steps correctly then you will have the following output in the Pycharm terminal :
+
+C:\Users\sv721\MAC\mac>python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, sessions, shop
+Running migrations:
+  Applying shop.0002_auto_20200809_0105... OK
+Restart the development server and head over to the admin panel. Now, add a product by clicking on the "Add Product" button. In the below image, you see that I have added a product named "Apple iPhone 11". 
+
+So, we just saw that how can we add product images in the admin panel. Now, look at the picture given below:
+
+In the above image, you can see that Django automatically created a folder named images in the shop app. You can also see that the product's image is also visible in the Pycharm IDE, but this is not an effective way to add images. In the upcoming tutorial, we will learn to include images with the help of media directories.
+
+So, we just made some changes to the model of the shop app. Now, take a look at the below image.
+
+In the above image, you can see that every product object that we add gets a product name of this format: Product Object(Object number). But this format looks awful, and it also becomes hard to identify the product. So, let's change this format. Open models.py file of the shop app and type the below code :
+
+from django.db import models
+
+class Product(models.Model):
+    product_id=models.AutoField
+    product_name=models.CharField(max_length=50)
+    category= models.CharField(max_length=50, default="")
+    sub_category= models.CharField(max_length=50, default="")
+    price=models.IntegerField(default=0)
+    desc=models.CharField(max_length=300)
+    pub_date=models.DateField()
+    image= models.ImageField(upload_to="shop/images",default="")
+
+    def __str__(self):
+        return self.product_name
+In the above code, we have added an __str__ function that will return the name of the product instead of the object number. In Python, __str__ function is used to return the string representation of the object. Here are the results:
+
+This tutorial ends here, and I will see you in the next tutorial.
+
+
+Code shop/models.py as described/written in the video
+from django.db import models
+
+# Create your models here.
+class Product(models.Model):
+    product_id = models.AutoField
+    product_name = models.CharField(max_length=50)
+    category = models.CharField(max_length=50, default="")
+    subcategory = models.CharField(max_length=50, default="")
+    price = models.IntegerField(default=0)
+    desc = models.CharField(max_length=300)
+    pub_date = models.DateField()
+    image = models.ImageField(upload_to='shop/images', default="")
+
+    def __str__(self):
+        return self.product_name
