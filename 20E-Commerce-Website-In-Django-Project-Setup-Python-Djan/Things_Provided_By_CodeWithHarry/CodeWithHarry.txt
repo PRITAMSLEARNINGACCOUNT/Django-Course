@@ -1,0 +1,13 @@
+We have come so far in our Django journey and learned various concepts of Django. In the previous tutorials, we saw the development of the textutils website, and it's time to create the next Django project. I am very excited, and you should too because the next project that we are going to develop by Django is an E-commerce website. Yes! You read it right. We are going to create a fully functional E-commerce website by using Django. Seems exciting? So, without wasting any time, let's start the development of our website.
+
+So, first of all, open Pycharm IDE and create a new project. Follow the steps given below :
+
+Step 1: Click on File and then select New Project.
+
+Step 2: After clicking on New Project, a pop-up window will appear. Select the location(PycharmProjects folder recommended) and name the file as MAC(My Awesome Cart.)
+
+With this, we have successfully started our project called MAC. This tutorial ends here and in the next tutorial, we will see the concepts of Django apps.
+
+Code as described/written in the video
+
+Kindly type the command line instructions yourself after watching the video!

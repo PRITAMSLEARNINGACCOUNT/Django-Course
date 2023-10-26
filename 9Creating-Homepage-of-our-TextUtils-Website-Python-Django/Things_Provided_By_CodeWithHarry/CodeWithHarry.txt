@@ -1,0 +1,150 @@
+Creating Homepage of our TextUtils Website | Python Django Tutorials In Hindi #9
+After we created a template and defined some initial endpoints to work with, it's time to create a homepage for our textutils website. The home page will contain two things :
+
+Text Area: For taking text input from the user.
+Buttons: For redirecting the user to a specific endpoint.
+So, let's start with the development of textarea.
+
+
+0:55 - Creating Textarea :
+Before getting our hands dirty by writing code for creating a text area, it is essential to understand why do we need a text area? The purpose of our textutils website is to perform some basic operations on the text entered by users. But to perform any function on the text, we need text! So, from where will we get this text? To get the text from the user, we need to build a text area into which the user can enter the text. 
+
+I think we have talked much, and it's time to start the development of our website. Follow the steps given below to create a text area.
+
+Steps To Create Textarea:
+Step 1: Open index.html.
+
+Step 2: Type the following code :
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Template is working</title>
+</head>
+<body>
+<h1>Welcome to the text analyazer. Enter your text below</h1>
+<form action='/removepunc' method='get'>
+    <textarea name='text' style='margin: 0px; width: 721px; height: 93px;'></textarea>
+ 
+</form>
+</body>
+</html>
+I am assuming that you already have a firm grip on HTML. If that is not the case, then you can learn HTML within 30 minutes by clicking here.
+
+03:08 - Creating Buttons :
+We will use the HTML <button> tag for creating buttons.Open index.html and type the following code :
+
+<button type='submit'> Analyze Text</button>
+Here, we have created only one button, i.e., Analyze Text. But, we will include more buttons in the future.
+
+
+03:30- Transfering Text Entered By User To A Specific Endpoint :
+We have successfully created a text area and a analyze button. But, are they performing any function? You can see that we can enter text in the text area, so it is performing its function correctly. But, what about the button? On clicking the button, it takes the user to nowhere! Therefore, we will now include the action attribute in the form tag that will send the entered text to a specific endpoint when the user clicks on the Analyze Text button.
+
+Type the following code :
+
+<form action='/removepunc' method='get'>
+    <textarea name='text' style='margin: 0px; width: 721px; height: 93px;'></textarea>
+    <button type='submit'> Analyze Text</button>
+
+</form>
+Restart the Django development server. From now, any text entered in the text area will be sent to the removepunc endpoint. For example, I entered "Code With Harry" in the text area and then clicked on the Analyze Text button. In the image below, you can see that "Code With Harry" is sent to the removepunc endpoint.
+
+
+
+With this, we have successfully created the home page of our website. I hope each and every step is working fine on your end.
+
+
+Code as described/written in the video
+
+# views.py
+# I have created this file - Harry
+from django.http import HttpResponse
+from django.shortcuts import render
+
+
+def index(request):
+    return render(request, 'index.html')
+
+    # return HttpResponse("Home")
+
+def removepunc(request):
+    #Get the text
+    djtext = request.GET.get('text', 'default')
+    print(djtext)
+    #Analyze the text
+    return HttpResponse("remove punc")
+
+def capfirst(request):
+    return HttpResponse("capitalize first")
+
+def newlineremove(request):
+    return HttpResponse("newline remove first")
+
+
+def spaceremove(request):
+    return HttpResponse("space remover back")
+
+def charcount(request):
+    return HttpResponse("charcount ")
+
+# urls.py
+"""textutils URL Configuration
+
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/2.1/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  path('', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.urls import include, path
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+"""
+from django.contrib import admin
+from django.urls import path
+from . import views
+
+# Code for video 6
+# urlpatterns = [
+#     path('admin/', admin.site.urls),
+#     path('', views.index, name='index'),
+#     path('about/', views.about, name='about'),
+#
+# ]
+
+# Code for video 7
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', views.index, name='index'),
+    path('removepunc', views.removepunc, name='rempun'),
+    path('capitalizefirst', views.capfirst, name='capfirst'),
+    path('newlineremove', views.newlineremove, name='newlineremove'),
+    path('spaceremove', views.spaceremove, name='spaceremove'),
+    path('charcount', views.charcount, name='charcount'),
+
+]
+
+
+
+index.html code as described/written in the video
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Template is working</title>
+</head>
+<body>
+<h1>Welcome to the text analyazer. Enter your text below</h1>
+<form action='/removepunc' method='get'>
+    <textarea name='text' style='margin: 0px; width: 721px; height: 93px;'></textarea>
+    <button type='submit'> Analyze Text</button>
+
+</form>
+</body>
+</html>

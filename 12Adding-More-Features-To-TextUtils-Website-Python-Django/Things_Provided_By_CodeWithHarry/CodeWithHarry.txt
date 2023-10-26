@@ -1,0 +1,223 @@
+In our previous tutorial, we made a removepunc endpoint that removes all the punctuations from the text entered by the user. Now, it's time to include some other exciting functionalities on our website.
+
+01:30 - Logic Building For UPPERCASE:
+We will include a functionality named UPPERCASE that will convert the user's text into uppercase. First of all, we need a checkbox like we created for removepunc. Open index.html and type the following code: 
+
+<input type="checkbox" name="fullcaps"> UPPERCASE<br>
+Now, open the views.py file and type the following code:
+
+fullcaps=request.GET.get('fullcaps','off')
+In the above code, we have made a variable named fullcaps which stores the on or off the value of the fullcaps checkbox. Now, type the following code in views.py :
+
+elif fullcaps=="on":
+    analyzed=""
+    for char in djtext:
+        analyzed=analyzed+char.upper()
+    params = {'purpose': 'Change To Uppercase', 'analyzed_text': analyzed}
+    return render(request, 'analyze.html', params)
+
+else:
+    return HttpResponse('Error')
+Let's understand the above code line by line. We have used the elif loop to check whether the fullcaps checkbox is on or off. After that, we have made an empty string variable named analyzed. When the user checks on the fullcaps checkbox, then the for loop inside the elif loop will be executed, and an iteration will be performed on djtext. On performing iteration, the text will be converted into the upper case with the help of the upper() function. Example: I wrote "change to upper case" and checked on the UPPERCASE check button. You can see in the image below that the text is converted into upper case.
+
+
+
+Logic Building For newlineremover :
+Now, we will write code for removing a new line from the text entered by the user. Open index.html and type the following code:
+
+<input type="checkbox" name="newlineremover"> New Line Remover<br>
+Open views.py and type the following code :
+
+elif newlineremover=="on":
+    analyzed=""
+    for char in djtext:
+        if char!="\n":
+            analyzed=analyzed+char
+    params = {'purpose': 'Removed NewLines', 'analyzed_text': analyzed}
+
+    # Analyze the text
+
+    return render(request, 'analyze.html', params)
+In the above code, we are using the same approach that we have used for creating other buttons. We are using an elif loop to check whether the newlineremover checkbox is turned on or off by the user. When the user checks on the newlineremover, then the for loop will be executed, and the new line will be removed with the help of a newline character("\n").
+
+09:20: Logic Building For extraspaceremover :
+Isn't it irritating when we add extra spaces by mistake while writing an important mail or assignment? How would it be if you could remove all the extra spaces with your own website? So let's write code for removing additional spaces from the text entered by the user. Open index.html and type the following code for creating a checkbox: 
+
+<input type="checkbox" name="extraspaceremover"> Extra Spaces Remover<br>
+Open views.py and write the following code :
+
+elif(extraspaceremover=="on"):
+        analyzed = ""
+        for index, char in enumerate(djtext):
+            if not(djtext[index] == " " and djtext[index+1]==" "):
+                analyzed = analyzed + char
+
+        params = {'purpose': 'Removed NewLines', 'analyzed_text': analyzed}
+
+        # Analyze the text
+        return render(request, 'analyze.html', params)
+In the above code, we have used elif to check whether the extraspaceremover is on or off. If the checkbox is on, then the for loop will be executed, and extra spaces will be removed with the help of the built-in function enumerate(). For example, I wrote, "Remove all the extra spaces." I checked on the Extra Spaces Remover button. You can see in the image below that all the extra spaces are removed.
+
+With this, we have successfully added some amazing functionalities to our textutils website. This tutorial ends here, and I will see you in the next tutorial. Feel free to ask your questions in QnA.
+
+views.py code as described/written in the video
+
+# Views.py
+# I have created this file - Harry
+from django.http import HttpResponse
+from django.shortcuts import render
+
+
+def index(request):
+    return render(request, 'index.html')
+
+    # return HttpResponse("Home")
+
+
+def ex1(request):
+    sites = ['''<h1>For Entertainment  </h1> <a href="https://www.youtube.com/"> Youtube Videos</a> ''',
+             '''<h1>For Interaction  </h1> <a href="https://www.facebook.com/"> Facebook</a> ''',
+             '''<h1>For Insight  </h1> <a href="https://www.ted.com/talks"> Ted Talks</a> ''',
+             '''<h1>For Internship  </h1> <a href="https://www.internshala.com">Internship</a> ''']
+    return HttpResponse((sites))
+
+def analyze(request):
+    #Get the text
+    djtext = request.GET.get('text', 'default')
+
+    # Check checkbox values
+    removepunc = request.GET.get('removepunc', 'off')
+    fullcaps = request.GET.get('fullcaps', 'off')
+    newlineremover = request.GET.get('newlineremover', 'off')
+    extraspaceremover = request.GET.get('extraspaceremover', 'off')
+
+    #Check which checkbox is on
+    if removepunc == "on":
+        punctuations = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
+        analyzed = ""
+        for char in djtext:
+            if char not in punctuations:
+                analyzed = analyzed + char
+        params = {'purpose':'Removed Punctuations', 'analyzed_text': analyzed}
+        return render(request, 'analyze.html', params)
+
+    elif(fullcaps=="on"):
+        analyzed = ""
+        for char in djtext:
+            analyzed = analyzed + char.upper()
+
+        params = {'purpose': 'Changed to Uppercase', 'analyzed_text': analyzed}
+        # Analyze the text
+        return render(request, 'analyze.html', params)
+
+    elif(extraspaceremover=="on"):
+        analyzed = ""
+        for index, char in enumerate(djtext):
+            if not(djtext[index] == " " and djtext[index+1]==" "):
+                analyzed = analyzed + char
+
+        params = {'purpose': 'Removed NewLines', 'analyzed_text': analyzed}
+        # Analyze the text
+        return render(request, 'analyze.html', params)
+
+    elif (newlineremover == "on"):
+        analyzed = ""
+        for char in djtext:
+            if char != "\n":
+                analyzed = analyzed + char
+
+        params = {'purpose': 'Removed NewLines', 'analyzed_text': analyzed}
+        # Analyze the text
+        return render(request, 'analyze.html', params)
+    else:
+        return HttpResponse("Error")
+
+# def capfirst(request):
+#     return HttpResponse("capitalize first")
+#
+# def newlineremove(request):
+#     return HttpResponse("newline remove first")
+#
+#
+# def spaceremove(request):
+#     return HttpResponse("space remover back")
+#
+# def charcount(request):
+#     return HttpResponse("charcount ")
+
+urls.py code as described/written in the video
+
+# Urls.py
+"""textutils URL Configuration
+
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/2.1/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  path('', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.urls import include, path
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+"""
+from django.contrib import admin
+from django.urls import path
+from . import views
+
+# Code for video 6
+# urlpatterns = [
+#     path('admin/', admin.site.urls),
+#     path('', views.index, name='index'),
+#     path('about/', views.about, name='about'),
+#
+# ]
+
+# Code for video 7
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', views.index, name='index'),
+    path('analyze', views.analyze, name='analyze'),
+    path('ex1', views.ex1, name='ex1'),
+
+
+]
+index.html code as described/written in the video
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Text Utils</title>
+</head>
+<body>
+<h1>Welcome to the text analyzer. Enter your text below</h1>
+<form action='/analyze' method='get'>
+    <textarea name='text' style='margin: 0px; width: 721px; height: 93px;'></textarea><br>
+
+    <input type="checkbox" name="removepunc"> Remove Punctuations<br>
+    <input type="checkbox" name="fullcaps"> UPPERCASE<br>
+    <input type="checkbox" name="newlineremover"> New Line Remover<br>
+    <input type="checkbox" name="extraspaceremover"> Extra Spaces Remover<br>
+    <button type='submit'> Analyze Text</button>
+
+</form>
+</body>
+</html>
+analyze.html code as described/written in the video
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Analyzing Your Text...</title>
+</head>
+<body>
+<h1>Your Analyzed Text - {{ purpose }}</h1>
+<p>
+    {{ analyzed_text }}
+
+</p>
+</body>
+</html>
