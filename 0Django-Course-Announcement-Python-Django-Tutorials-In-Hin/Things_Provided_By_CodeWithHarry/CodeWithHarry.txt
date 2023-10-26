@@ -1,0 +1,13 @@
+Django Course Announcement | Python Django Tutorials In Hindi #0
+Today, we will start our journey to learn Django from scratch. Django is one of the most used python programming frameworks for creating website backends. I am Harry, and I will be your instructor throughout this course. I have taught more than 30 million people programming on YouTube. With over half a million people subscribed to my channel on YouTube, it's been an amazing journey so far. Apart from that, I am a Django enthusiast and a full-stack software engineer by profession. Everything you will learn in these tutorials will be based on my years of production experience and struggles in learning Django. This is exactly the set of tutorials I wish existed 5 years ago when I started learning Django. This set of tutorials will make you realize how easy it is to learn Django with a very basic knowledge of python and HTML.
+
+
+Django is my all-time favorite option to build a website. Number 1 reason being - Python. Yes, I love python, and Django is all python which makes me feel relaxed while coding. In fact, the website you are reading this content on is written in Django. If you are a python lover and want to take your Python skills to the next level with Django, you can follow these tutorials. 
+
+Using these videos and text notes, you can start learning Django 3 from scratch. I have designed this series of tutorials as easy and simple to follow as possible. In this series of tutorials, we will see what Django is, why you need to learn it, and what all can be built using this amazing python framework. 
+
+On top of that, we will be looking into some fun, amazing projects where I will walk you through creating an e-Commerce store and a text analyzer website completely from scratch. You will also learn how to build complex systems like a Blogging website with login and comments from scratch.
+
+If you are new to python and have some basic idea about how variables, functions, and lists in python works, you can still follow this course. If you have never coded in python before, I suggest you look into my python tutorials for the absolute beginners series. I am happy you came here, and I will make sure that you become a Django pro after completing this course.
+
+I hope you are as excited as I am to get started with this amazing framework. Let's head to the next video, where we will learn about installing Django and setting up our development environment!

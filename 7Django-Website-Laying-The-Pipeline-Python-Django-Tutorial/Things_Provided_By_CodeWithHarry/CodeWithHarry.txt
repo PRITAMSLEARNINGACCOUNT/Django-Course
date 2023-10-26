@@ -1,0 +1,128 @@
+Django Website: Laying The Pipeline | Python Django Tutorials In Hindi #7
+In the tutorial, we will build a pipeline for our textutils website.
+
+00:00 - Introduction :
+Laying the pipeline of a website is like creating a blueprint for the website. In this tutorial, we will build various endpoints that will help us to get a rough idea about the working of the website.
+
+00:43- Creating Home Page Of TextUtils Website :
+A homepage is the first thing people see when they visit any website. Homepages are like digital welcome signs to your user. So, without wasting time, let's start building the homepage of our textutils website.
+
+Step 1: Open the views.py file and type the below code:
+
+from django.http import HttpResponse
+
+def index(request):
+    return HttpResponse("Home")
+We have already seen the working of the index function and HttpResponse module in our previous tutorials. If you have any doubt, then click here and follow the tutorials.
+
+02:47 - Creating removepunc Endpoint :
+Type the following code in the views.py file :
+
+def removepunc(request):
+    return HttpResponse("remove punc")
+In the above code, we have created a function named removepunc, which returns "remove punc" as a HttpResponse. After defining a function in views.py, it is essential to map the view function inside the urls.py file. Otherwise, you will receive a "Page Not Found" error on accessing the end-point. 
+
+Open the urls.py file and type the following code to map the removepunc function:
+
+  path('removepunc', views.removepunc, name='rempun'),
+03:55 - Creating Capfirst Endpoint:
+Now, we are going to create our second endpoint named capfirst. Write the following code in the views.py file:
+
+def capfirst(request):
+    return HttpResponse("capitalize first")
+As we have successfully created the capfirst function, let's map this function in urls.py. Open urls.py and type the code given below:
+
+path('capitalizefirst', views.capfirst, name='capfirst'),
+04:50- Creating Some Other endpoints:
+Now, we are familiar with the process of creating a new endpoint from scratch. Let's create some more endpoints for our website.
+
+newlineremove: Let us call the endpoint as newlineremover. It will have the following URL and view function associated with it:
+Function code:
+
+def newlineremove(request):
+
+    return HttpResponse("capitalize first")
+URL mapping: 
+
+path('newlineremove', views.newlineremove, name='newlineremove')
+spaceremove: Let us call the endpoint as spaceremove. It will have the following URL and view function associated with it:
+Function code: 
+
+def spaceremove(request):
+
+    return HttpResponse("space remover")
+URL mapping:
+path('spaceremove', views.spaceremove, name='spaceremove')
+charcount: Let us call the endpoint as charcount. It will have the following URL and view function associated with it:
+Function code:
+
+def charcount(request):
+
+    return HttpResponse("charcount ")
+URL mapping:
+
+path('charcount', views.charcount, name='charcount')
+And, that's how you can easily create a simple yet efficient pipeline for any website. Follow the steps carefully, and do not forget to check whether all the end-points are working correctly or not. If you receive any errors, feel free to ask in the QnA section. 
+
+Code as described/written in the video
+
+
+#urls.py
+
+"""textutils URL Configuration
+
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/2.1/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  path('', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.urls import include, path
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+"""
+from django.contrib import admin
+from django.urls import path
+from . import views
+
+
+# Code for video 7
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', views.index, name='index'),
+    path('removepunc', views.removepunc, name='rempun'),
+    path('capitalizefirst', views.capfirst, name='capfirst'),
+    path('newlineremove', views.newlineremove, name='newlineremove'),
+    path('spaceremove', views.spaceremove, name='spaceremove'),
+    path('charcount', views.charcount, name='charcount'),
+
+]
+
+
+#views.py
+# I have created this file - Harry
+from django.http import HttpResponse
+
+# Code for video 7
+
+def index(request):
+    return HttpResponse("Home")
+
+def removepunc(request):
+    return HttpResponse("remove punc")
+
+def capfirst(request):
+    return HttpResponse("capitalize first")
+
+def newlineremove(request):
+    return HttpResponse("capitalize first")
+
+
+def spaceremove(request):
+    return HttpResponse("space remover")
+
+def charcount(request):
+    return HttpResponse("charcount ")

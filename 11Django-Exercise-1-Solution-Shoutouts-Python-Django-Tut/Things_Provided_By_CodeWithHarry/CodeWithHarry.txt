@@ -1,0 +1,45 @@
+In tutorial number #6 of this course, I gave you the exercise to create a personal navigator. Let's recall one more time what was the problem and expected output :
+
+
+Problem Statement :
+You are supposed to create a personal navigator for the top 5 websites that you use most. You should be able to access all the five websites directly through your development environment of Django.
+
+Expected Output :
+
+
+Solution :
+Type the below code in the views.py file :
+
+def ex1(request):
+    s=''' Navigation Bar <br> </h2>
+    <a href= "https://www.youtube.com/playlist?list=PLu0W_9lII9ah7DDtYtflgwMwpT3xmjXY9" > Django Code With Harry Bhai </a><br>
+    <a href="https://www.facebook.com/"> Facebook </a> <br>
+    <a href="https://www.flipkart.com/"> Flipkart </a> <br>
+    <a href="https://www.hindustantimes.com/"> News </a> <br>
+    <a href="https://www.google.com/"> Google </a> <br>
+    reutrn HttpResponse(s)
+Type the below code in the urls.py file :
+
+path('ex1', views.ex1, name="ex1")
+Code as described/written in the video
+
+# Views.py 
+
+# I have created this file - Harry
+from django.http import HttpResponse
+from django.shortcuts import render
+
+
+def index(request):
+    return render(request, 'index.html')
+
+    # return HttpResponse("Home")
+
+
+def ex1(request):
+    sites = ['''<h1>For Entertainment </h1><a href = "https://www.youtube.com" >youtube video</a>''',
+             '''<h1>For Interaction </h1><a href = "https://www.facebook.com" >Facebook</a>''',
+             '''<h1>For Insight   </h1><a href = "https://www.ted.com/talks" >Ted Talk</a>''',
+             '''<h1>For Internship   </h1><a href="https://internshala.com" >Intenship</a>''',
+             ]
+    return HttpResponse((sites))

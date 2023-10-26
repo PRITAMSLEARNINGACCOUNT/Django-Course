@@ -1,0 +1,26 @@
+Our First Django Website | Python Django Tutorials In Hindi #4
+Overview :
+This is the fourth tutorial of our Django series. In this tutorial, we are going to build our first website called Textutils, which will contain utilities for dealing with text. This website will be able to perform various functions such as converting lowercase text into uppercase, counting the number of characters, removing extra space, and much more
+
+Setting Up Django :
+Step 1: Open Pycharm IDE and start a new project named "textutils."
+
+Step 2: Open the built-in terminal of Pycharm. (You can also use Windows Powershell)
+
+Step 3: Type the below command and press enter:
+
+django-admin startproject textutils
+I have already explained this command in my previous tutorial, but let me explain it again for you. In the above code, django-admin is the command-line utility into which we have passed an argument called startproject, and textutils is the name of our project. If you've followed all the steps carefully, then Django must have created a new project with the name textutils for you.
+
+Creating views.py :
+Now, I am going to create a file called views.py inside the textutils folder (The folder which was created for us by Django)
+In this file, we will define views that will perform some specific functions for our website.
+
+Steps To Create views.py file:
+Step 1: Double click on the textutils folder.
+
+Step 2: Click on new and select python file from the drop-down list.
+
+Step 3: Name your file as views.py and press enter.
+
+With this, you have successfully created your views.py file. In upcoming tutorials, we will learn how to define views inside this file and how to map URLs with views.
