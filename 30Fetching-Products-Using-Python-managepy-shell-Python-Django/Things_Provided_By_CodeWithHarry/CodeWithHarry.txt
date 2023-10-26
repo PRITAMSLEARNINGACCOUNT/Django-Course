@@ -1,0 +1,25 @@
+In this tutorial, we will see how we can make changes to our database with the python manage.py shell. Open the Windows PowerShell and get into the mac directory. You can also use the existing terminal of the Pycharm IDE. In the below image, you can see that I'm already in the mac directory.
+
+Type the below command to open the shell in the Windows Powershell :
+
+python manage.py shell
+By using the shell, we can easily test and make changes to a project's models. Type the below code to import Product from the database:
+
+from shop.models import Product
+After this, type the below code to see all the imported objects :
+
+Product.objects.all()
+Output :
+
+
+Let's see how we can use the shell to make the changes in the database. Type the below code to add a new product to the Product model :
+
+myprod= Product(product_name="mouse", category="computer", subcategory="devices", prices=12, desc="chooha hai ye", pub_date=timezone.now()) 
+After this, type the below code to save myprod :
+
+myprod.save()
+Now, type the below code to get a query set of all the objects so that we can check if myprod is saved to the database or not.
+
+Product.objects.all()
+Output :
+In the above image, you can see that a new Product named mouse is added to the query set. So, that's how you can easily make changes to the database with the help of the manage.py shell.
