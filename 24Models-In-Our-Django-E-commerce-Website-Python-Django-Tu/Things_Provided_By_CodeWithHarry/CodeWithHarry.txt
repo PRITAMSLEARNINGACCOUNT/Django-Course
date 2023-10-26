@@ -1,0 +1,55 @@
+While building modern web applications, we need to store the user's data somewhere so that it can be used for a better user experience. We are building an E-commerce website, so we also need to store the data somewhere. So, my question is, where do we store the data? A straightforward answer to this question is the database. There are various types of database management systems, such as MySQL, Oracle Database, SQLite, etc. So we can conclude that we need to get our hands dirty with DBMS to store the data. But, wait a minute. I have some good news for you! In Django, you can use the models to access the database instead of directly interacting with messy SQL. So, let's start our discussion on Django models:
+ 
+Django models:
+Models in Django are the single and definitive source of information.
+With the help of Django models, we can manipulate and retrieve the data instead of writing complex SQL to perform the same task.
+Whenever we create a model, Django automatically executes SQL and creates a corresponding table in the database.
+Now, take a look at the below image:
+
+When we write the command python manage.py runserver, the development server of Django gets started, and we see a screen like the above image. Notice that Django tells us that we have some unapplied migrations. So what is the meaning of unapplied migrations? Let me answer this question for you. Django is trying to tell us that we have not made the required tables in the database. Type the below command to make the required tables:
+
+python manage.py migrate
+We have applied all the unapplied migrations by running the above command, which means we have made changes in the database. Now, let's see how to create models in Django:
+ 
+Step 1: Open models.py file of shop app.
+Step 2: Here, we are creating a model named Product. Here is the code :
+
+from django.db import models
+
+class Product(models.Model):
+    product_id=models.AutoField
+    product_name=models.CharField(max_length=50)
+    desc=models.CharField(max_length=300)
+    pub_date=models.DateField()
+ 
+You can read about the models filed reference by clicking here. So, that's how you can easily create models in Django. Now, we need to make some changes in our settings.py file. First of all, open the apps.py file of the shop app, you can see that Django has already created a class called ShopConfig, but in our previous tutorials, we directly dumped the name of the installed apps in settings.py. Now, we can replace shop by shop.apps.ShopConfig. So, open the settings.py file and replace it. You can also copy and paste the from the below code :
+
+INSTALLED_APPS = [
+    'shop.apps.ShopConfig',
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'blog',
+  
+]
+Now we have made a change so let's store this change by typing the below code :
+
+python manage.py makemigrations
+Here are the results:
+
+Migrations for 'shop':
+  shop\migrations\0001_initial.py
+    - Create model Product
+Now, let's open the open migration folder. Inside the migration folder, you will find a file called 0001_initial.py. All the changes that we have made are stored in this file, and we have not made any changes in the database. Now, type the below command to make changes in the database:
+
+python manage.py migrate
+Here are the results:
+
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, sessions, shop
+Running migrations:
+  Applying shop.0001_initial... OK
+So all the changes that we made are now added to our database. This is all for this tutorial, and in the next tutorial, we will learn how to create an admin user in Django. Feel free to ask your queries in QnA.

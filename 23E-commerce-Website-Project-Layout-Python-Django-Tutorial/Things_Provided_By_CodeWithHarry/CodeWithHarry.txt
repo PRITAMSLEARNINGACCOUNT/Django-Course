@@ -1,0 +1,65 @@
+In the previous tutorial, we saw that how can we add Bootstrap to our apps with the help of templates. In this tutorial, we will build some endpoints for our shop app.
+
+Our website will contain the following endpoints:
+
+about: This endpoint will be responsible for the about section of the website.
+contact: Any information to contact the customer support will be displayed here.
+tracker: This endpoint will help us to track the status of the ordered items.
+search: We will use this endpoint to search for items on our website.
+productView: This endpoint will be responsible for showing the details of the listed products.
+checkout: We will display the checkout section at this endpoint.
+
+Now, let's start creating the views and URLs for the endpoints.
+
+about :
+  Function code :
+
+def about(request):
+    return HttpResponse("We are at about")
+URL mapping :
+
+path('about/', views.about,name="AboutUs")
+contact:
+Function code :
+
+def contact(request):
+    return HttpResponse("We are at contact")
+URL mapping:
+
+path('contact/', views.contact,name="ContactUs"),
+tracker:
+Function code:
+
+def tracker(request):
+    return HttpResponse("We are at tracker")
+URL mapping :
+
+path('tracker', views.tracker,name="TrackingStatus"),
+search
+
+Function code
+
+def search(request):
+    return HttpResponse("We are at search")
+URL mapping:
+
+path('search/', views.search,name="Search"),
+productView:
+Function code:
+
+def productView(request):
+    return HttpResponse("We are at product view")
+URL mapping:
+
+path('productview/', views.productView,name="TrackingStatus"),
+checkout
+Function code :
+
+def checkout(request):
+    return HttpResponse("We are at checkout")
+URL mapping:
+
+path('checkout/', views.checkout,name="Checkout"),
+With this, we have successfully laid a pipeline for our E-commerce website. Restart the server and make sure that all the endpoints are working correctly. I hope all the concepts that we have discussed till now are clear to you. Feel free to ask your queries in the QnA section.
+
+Code as described/written in the video
