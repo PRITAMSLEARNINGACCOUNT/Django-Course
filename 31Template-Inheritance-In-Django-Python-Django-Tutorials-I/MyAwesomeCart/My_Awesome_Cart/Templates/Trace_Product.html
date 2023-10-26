@@ -1,0 +1,21 @@
+{%extends 'Base_HTML.html'%}
+{% block title%} Trace Your Product {% endblock %}
+{%block body%}
+<br>
+<div class="container">
+    <div class="container-fluid">
+        <form action="Error" method="post">{% csrf_token %}
+            <div class="form-floating">
+                <textarea name="Text_Entry" class="form-control" placeholder="Enter Your Text Here"
+                    id="floatingTextarea"></textarea>
+                <label for="floatingTextarea">Please Enter The Tracking Id Of Your Product</label>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-success">Trace The Product</button>
+    </div>
+    </form>
+
+
+
+</div>
+{% endblock %}

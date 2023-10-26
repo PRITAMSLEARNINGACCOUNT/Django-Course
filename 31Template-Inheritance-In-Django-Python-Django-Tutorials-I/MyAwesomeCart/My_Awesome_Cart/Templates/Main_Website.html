@@ -1,0 +1,319 @@
+{%extends 'Base_HTML.html' %}
+{% block title%} My Awesome Cart {% endblock %}
+{%block css%}
+<style>
+    .col-md-3 {
+        display: inline-block;
+        margin-left: -4px;
+    }
+
+    .carousel-indicators .active {
+        background-color: blue;
+    }
+
+    .col-md-3 img {
+        width: 100%;
+        height: auto;
+    }
+
+    body .carousel-indicator li {
+        background-color: blue;
+    }
+
+    body .carousel-indicators {
+        bottom: 0;
+    }
+
+    body .carousel-control-prev-icon,
+    body .carousel-control-next-icon {
+        background-color: blue;
+    }
+
+    body .no-padding {
+        padding-top: 200px;
+        padding-left: 0;
+        padding-right: 0;
+    }
+</style>
+{%endblock%}
+{%block body%}
+<div class="container">
+    <br>
+    <h1>Welcome To Our Website</h1>
+    <div id="demo" class="carousel slide">
+        <ul class="carousel-indicators">
+            <li data-bs-target="#demo" data-bs-slide-to="0" class="active"></li>
+            <li data-bs-target="#demo" data-bs-slide-to="1"></li>
+            <li data-bs-target="#demo" data-bs-slide-to="2"></li>
+            <li data-bs-target="#demo" data-bs-slide-to="3"></li>
+            <li data-bs-target="#demo" data-bs-slide-to="4"></li>
+        </ul>
+
+        <div class="container carousel-inner no-padding">
+
+            <div class="carousel-item active">
+                <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="card" style="width: 18rem;">
+                        <img src='Required Media/{{Product_1.Product_Image}}' class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{Product_1.Product_Name}}</h5>
+                            <p class="card-text">{{Product_1.Product_Description}}</p>
+                            <a href="#" class="btn btn-primary">{{Product_1.Product_Price}}</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="card" style="width: 18rem;">
+                        <img src="Required Media/{{Product_2.Product_Image}}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{Product_2.Product_Name}}</h5>
+                            <p class="card-text">{{Product_2.Product_Description}}</p>
+                            <a href="#" class="btn btn-primary">{{Product_2.Product_Price}}</a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="card" style="width: 18rem;">
+                        <img src='Required Media/{{Product_3.Product_Image}}' class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{Product_3.Product_Name}}</h5>
+                            <p class="card-text">{{Product_3.Product_Description}}</p>
+                            <a href="#" class="btn btn-primary">{{Product_3.Product_Price}}</a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="card" style="width: 18rem;">
+                        <img src='Required Media/{{Product_4.Product_Image}}' class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{Product_4.Product_Name}}</h5>
+                            <p class="card-text">{{Product_4.Product_Description}}</p>
+                            <a href="#" class="btn btn-primary">{{Product_4.Product_Price}}</a>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="carousel-item">
+                <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="card" style="width: 18rem;">
+                        <img src='Required Media/{{Product_5.Product_Image}}' class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{Product_5.Product_Name}}</h5>
+                            <p class="card-text">{{Product_5.Product_Description}}</p>
+                            <a href="#" class="btn btn-primary">{{Product_5.Product_Price}}</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="card" style="width: 18rem;">
+                        <img src='Required Media/{{Product_6.Product_Image}}' class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{Product_6.Product_Name}}</h5>
+                            <p class="card-text">{{Product_6.Product_Description}}</p>
+                            <a href="#" class="btn btn-primary">{{Product_6.Product_Price}}</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="card" style="width: 18rem;">
+                        <img src='Required Media/{{Product_7.Product_Image}}' class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{Product_7.Product_Name}}</h5>
+                            <p class="card-text">{{Product_7.Product_Description}}</p>
+                            <a href="#" class="btn btn-primary">{{Product_7.Product_Price}}</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="card" style="width: 18rem;">
+                        <img src='Required Media/{{Product_8.Product_Image}}' class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{Product_8.Product_Name}}</h5>
+                            <p class="card-text">{{Product_8.Product_Description}}</p>
+                            <a href="#" class="btn btn-primary">{{Product_8.Product_Price}}</a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+
+            <div class="carousel-item">
+                <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="card" style="width: 18rem;">
+                        <img src='Required Media/{{Product_9.Product_Image}}' class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{Product_9.Product_Name}}</h5>
+                            <p class="card-text">{{Product_9.Product_Description}}</p>
+                            <a href="#" class="btn btn-primary">{{Product_9.Product_Price}}</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="card" style="width: 18rem;">
+                        <img src='Required Media/{{Product_10.Product_Image}}' class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{Product_10.Product_Name}}</h5>
+                            <p class="card-text">{{Product_10.Product_Description}}</p>
+                            <a href="#" class="btn btn-primary">{{Product_10.Product_Price}}</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="card" style="width: 18rem;">
+                        <img src='Required Media/{{Product_11.Product_Image}}' class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{Product_11.Product_Name}}</h5>
+                            <p class="card-text">{{Product_11.Product_Description}}</p>
+                            <a href="#" class="btn btn-primary">{{Product_11.Product_Price}}</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="card" style="width: 18rem;">
+                        <img src='Required Media/{{Product_12.Product_Image}}' class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{Product_12.Product_Name}}</h5>
+                            <p class="card-text">{{Product_12.Product_Description}}</p>
+                            <a href="#" class="btn btn-primary">{{Product_12.Product_Price}}</a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+            <div class="carousel-item">
+                <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="card" style="width: 18rem;">
+                        <img src='Required Media/{{Product_13.Product_Image}}' class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{Product_13.Product_Name}}</h5>
+                            <p class="card-text">{{Product_13.Product_Description}}</p>
+                            <a href="#" class="btn btn-primary">{{Product_13.Product_Price}}</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="card" style="width: 18rem;">
+                        <img src='Required Media/{{Product_14.Product_Image}}' class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{Product_14.Product_Name}}</h5>
+                            <p class="card-text">{{Product_14.Product_Description}}</p>
+                            <a href="#" class="btn btn-primary">{{Product_14.Product_Price}}</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="card" style="width: 18rem;">
+                        <img src='Required Media/{{Product_15.Product_Image}}' class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{Product_15.Product_Name}}</h5>
+                            <p class="card-text">{{Product_15.Product_Description}}</p>
+                            <a href="#" class="btn btn-primary">{{Product_15.Product_Price}}</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="card" style="width: 18rem;">
+                        <img src='Required Media/{{Product_16.Product_Image}}' class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{Product_16.Product_Name}}</h5>
+                            <p class="card-text">{{Product_16.Product_Description}}</p>
+                            <a href="#" class="btn btn-primary">{{Product_16.Product_Price}}</a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+            <div class="carousel-item">
+                <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="card" style="width: 18rem;">
+                        <img src='Required Media/{{Product_17.Product_Image}}' class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{Product_17.Product_Name}}</h5>
+                            <p class="card-text">{{Product_17.Product_Description}}</p>
+                            <a href="#" class="btn btn-primary">{{Product_17.Product_Price}}</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="card" style="width: 18rem;">
+                        <img src='Required Media/{{Product_18.Product_Image}}' class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{Product_18.Product_Name}}</h5>
+                            <p class="card-text">{{Product_18.Product_Description}}</p>
+                            <a href="#" class="btn btn-primary">{{Product_18.Product_Price}}</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="card" style="width: 18rem;">
+                        <img src='Required Media/{{Product_19.Product_Image}}' class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{Product_19.Product_Name}}</h5>
+                            <p class="card-text">{{Product_19.Product_Description}}</p>
+                            <a href="#" class="btn btn-primary">{{Product_19.Product_Price}}</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="card" style="width: 18rem;">
+                        <img src='Required Media/{{Product_20.Product_Image}}' class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{Product_20.Product_Name}}</h5>
+                            <p class="card-text">{{Product_20.Product_Description}}</p>
+                            <a href="#" class="btn btn-primary">{{Product_20.Product_Price}}</a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+
+
+
+
+
+
+        </div>
+    </div>
+</div>
+
+<a class="carousel-control-prev" href="#demo" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+</a>
+<a class="carousel-control-next" href="#demo" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+</a>
+{% endblock %}
